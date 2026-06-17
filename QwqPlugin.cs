@@ -1,3 +1,4 @@
+using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Events;
 using CounterStrikeSharp.API.Modules.Utils;
@@ -13,7 +14,7 @@ public class QwqPlugin : BasePlugin
     {
         RegisterEventHandler<EventPlayerChat>((@event, _) =>
         {
-            var player = @event.Userid;
+            var player = Utilities.GetPlayerFromIndex(@event.Userid);
             if (player == null || !player.IsValid) return HookResult.Continue;
 
             if (@event.Text.Trim() == "qwq")
