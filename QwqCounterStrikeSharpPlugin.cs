@@ -4,12 +4,12 @@ using CounterStrikeSharp.API.Modules.Events;
 using CounterStrikeSharp.API.Modules.Utils;
 using Microsoft.Extensions.Logging;
 
-namespace qwqCounterStrikePlugin;
+namespace qwqCounterStrikeSharpPlugin;
 
-public class QwqPlugin : BasePlugin
+public class QwqCounterStrikeSharpPlugin : BasePlugin
 {
-    public override string ModuleName => "qwq CounterStrike Plugin";
-    public override string ModuleVersion => "0.1.3";
+    public override string ModuleName => "qwq CounterStrikeSharp Plugin";
+    public override string ModuleVersion => "0.1.4";
 
     public override void Load(bool hotReload)
     {

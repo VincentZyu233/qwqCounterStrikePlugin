@@ -14,7 +14,7 @@ jobs:
       - id: check
         run: |
           COMMIT_MSG="${{ github.event.head_commit.message }}"
-          VERSION="v$(grep -oP '<Version>\K[^<]+' qwqCounterStrikePlugin.csproj)-${{ github.run_number }}"
+          VERSION="v$(grep -oP '<Version>\K[^<]+' qwqCounterStrikeSharpPlugin.csproj)-${{ github.run_number }}"
 
           if echo "$COMMIT_MSG" | grep -q "build release"; then
             echo "should_build=true" >> $GITHUB_OUTPUT
@@ -42,11 +42,11 @@ jobs:
       - run: |
           VERSION="${{ needs.check.outputs.version }}"
           mkdir -p output
-          cp bin/Release/net10.0/qwqCounterStrikePlugin.dll "output/qwqCounterStrikePlugin-$VERSION.dll"
-          cp bin/Release/net10.0/qwqCounterStrikePlugin.pdb "output/qwqCounterStrikePlugin-$VERSION.pdb"
+          cp bin/Release/net10.0/qwqCounterStrikeSharpPlugin.dll "output/qwqCounterStrikeSharpPlugin-$VERSION.dll"
+          cp bin/Release/net10.0/qwqCounterStrikeSharpPlugin.pdb "output/qwqCounterStrikeSharpPlugin-$VERSION.pdb"
       - uses: actions/upload-artifact@v4
         with:
-          name: qwqCounterStrikePlugin-${{ needs.check.outputs.version }}
+          name: qwqCounterStrikeSharpPlugin-${{ needs.check.outputs.version }}
           path: output/
 
   release:
@@ -58,12 +58,12 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: qwqCounterStrikePlugin-${{ needs.check.outputs.version }}
+          name: qwqCounterStrikeSharpPlugin-${{ needs.check.outputs.version }}
           path: output
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           files: output/*
           tag_name: ${{ needs.check.outputs.version }}
-          name: "qwqCounterStrikePlugin ${{ needs.check.outputs.version }}"
+          name: "qwqCounterStrikeSharpPlugin ${{ needs.check.outputs.version }}"
           generate_release_notes: true
