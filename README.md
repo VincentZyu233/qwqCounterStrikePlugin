@@ -17,7 +17,7 @@
 
 基于 [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp) 框架，使用 C# (.NET 10) 编写。
 
-![效果预览](doc/images/preview.cs2.server-console.client-chat.png)
+![效果预览](doc/images/preview.cs2.server-console.client-console.client-chat.png)
 
 ## 🏃 💨 🔜 快速开始
 
