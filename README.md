@@ -45,21 +45,10 @@
 
 ## GitHub Actions
 
-推送到 GitHub 时，commit 信息中的关键词控制流水线行为：
+推送到 GitHub 时，**commit 信息中的关键词控制流水线行为**。  
+详细说明见 [`.github/workflows/build.md`](.github/workflows/build.md)。
 
-| Commit 关键词 | Build | Release |
+| 关键词 | 构建 | 发布 Release |
 |---|---|---|
-| `build action` | ✅ 构建并上传 artifact | ❌ |
-| `build release` | ✅ 构建并上传 artifact | ✅ 创建 GitHub Release |
-
-### 工作流阶段
-
-```
-check ──→ build ──→ release
-  │         │         │
-  │         │         └── 下载 artifact → 创建 Release → 上传 zip
-  │         │
-  │         └── dotnet build → 打包 → 上传 artifact
-  │
-  └── 解析 commit 信息 → 输出控制 flag
-```
+| `build action` | ✅ | ❌ |
+| `build release` | ✅ | ✅ |
