@@ -1,8 +1,12 @@
+![qwqCounterStrikePlugin](https://socialify.git.ci/VincentZyu233/qwqCounterStrikePlugin/image?custom_description=%F0%9F%8E%AE+CS2+%E6%9C%8D%E5%8A%A1%E7%AB%AF+C%23+%E6%8F%92%E4%BB%B6%E6%A8%A1%E6%9D%BF%E9%A1%B9%E7%9B%AE+%E2%80%94+%E7%8E%A9%E5%AE%B6%E8%BE%93%E5%85%A5+qwq%EF%BC%8C%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%9B%9E%E5%A4%8D+qwq%EF%BC%81%E2%9C%A8+%E5%9F%BA%E4%BA%8E+CounterStrikeSharp%EF%BC%8CGitHub+Actions+%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E5%8F%91%E5%B8%83+%F0%9F%9A%80qwq......qwq%21&description=1&font=Inter&forks=1&issues=1&language=1&logo=https%3A%2F%2Fpreview.redd.it%2Fcounter-strike-2-has-updated-their-logo-v0-tyyh6jk17n0f1.jpg%3Fwidth%3D474%26format%3Dpjpg%26auto%3Dwebp%26s%3D08f8163f425191d3f34d95108f13d22173245e7d&name=1&owner=1&pulls=1&stargazers=1&theme=Auto)
+
 # qwqCounterStrikePlugin
 
 一个 Counter-Strike 2 服务端插件，玩家在聊天框输入 `qwq`，服务端回复 `qwq!`。
 
 基于 [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp) 框架，使用 C# (.NET 10) 编写。
+
+![效果预览](doc/images/preview.cs2.server-console.client-chat.png)
 
 ## 快速开始
 
@@ -34,12 +38,22 @@
    ```
 
 3. **放入插件**
-   从 [Releases](https://github.com/VincentZyu233/qwqCounterStrikePlugin/releases/latest) 下载 `.dll` 和 `.pdb` 文件到插件目录：
+   CSS 要求插件放在 `plugins/<插件名>/<插件名>.dll` 子目录中（目录名 = DLL 文件名）。
+   从 [Releases](https://github.com/VincentZyu233/qwqCounterStrikePlugin/releases/latest) 下载 `.dll`：
    ```bash
    TAG=<最新版本号>
-   cd csgo/addons/counterstrikesharp/plugins/
+   PLUGIN_DIR=csgo/addons/counterstrikesharp/plugins/qwqCounterStrikePlugin
+   mkdir -p $PLUGIN_DIR
+   cd $PLUGIN_DIR
    wget "https://github.com/VincentZyu233/qwqCounterStrikePlugin/releases/download/$TAG/qwqCounterStrikePlugin-$TAG.dll"
-   wget "https://github.com/VincentZyu233/qwqCounterStrikePlugin/releases/download/$TAG/qwqCounterStrikePlugin-$TAG.pdb"
+   mv qwqCounterStrikePlugin-$TAG.dll qwqCounterStrikePlugin.dll
+   ```
+
+   最终插件结构：
+   ```
+   plugins/
+   └── qwqCounterStrikePlugin/
+       └── qwqCounterStrikePlugin.dll
    ```
 
 4. **启动服务器**
@@ -47,7 +61,7 @@
    ./cs2 -dedicated -game csgo +map de_dust2 +sv_lan 1
    ```
 
-   控制台看到 `qwq CounterStrike Plugin loaded successfully!` 即加载成功。
+   控制台看到 `Finished loading plugin qwq CounterStrike Plugin` 即加载成功。
 
 5. **进游戏测试**  
    聊天框输入 `qwq` → 收到绿色回复 `qwq!`
@@ -77,11 +91,13 @@ cp -r /home/mac/SSoftwareFiles/css/ccs-with-runtime/addons/* \
 tree /root/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/csgo/addons/
 
 
-# 3. 下载插件到插件目录（去 Releases 找最新 tag 替换）
-TAG=v0.0.1-5
-cd "/root/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/addons/counterstrikesharp/plugins/"
+# 3. 下载插件到插件子目录（目录名必须等于 DLL 文件名）
+TAG=v0.1.3-9
+PLUGIN_DIR="/root/.local/share/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/addons/counterstrikesharp/plugins/qwqCounterStrikePlugin"
+mkdir -p "$PLUGIN_DIR"
+cd "$PLUGIN_DIR"
 proxychains4 wget "https://github.com/VincentZyu233/qwqCounterStrikePlugin/releases/download/$TAG/qwqCounterStrikePlugin-$TAG.dll"
-proxychains4 wget "https://github.com/VincentZyu233/qwqCounterStrikePlugin/releases/download/$TAG/qwqCounterStrikePlugin-$TAG.pdb"
+mv qwqCounterStrikePlugin-$TAG.dll qwqCounterStrikePlugin.dll
 
 # 5. 启动服务器
 /root/.local/share/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/bin/linuxsteamrt64/cs2 \
