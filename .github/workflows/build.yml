@@ -41,7 +41,7 @@ jobs:
       - run: dotnet build -c Release --no-restore
       - run: |
           mkdir -p output
-          cp bin/Release/net10.0/QwqPlugin.dll output/
+          cp bin/Release/net10.0/qwqCounterStrikePlugin.dll output/
           cp bin/Release/net10.0/*.pdb output/ 2>/dev/null || true
           cd output && zip -r ../qwqCounterStrikePlugin.zip .
       - uses: actions/upload-artifact@v4
