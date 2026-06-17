@@ -1,0 +1,68 @@
+name: Build Plugin
+
+on: [push]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      should_build: ${{ steps.check.outputs.should_build }}
+      should_release: ${{ steps.check.outputs.should_release }}
+      version: ${{ steps.check.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: check
+        run: |
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          VERSION="v$(grep -oP '<Version>\K[^<]+' qwqCounterStrikePlugin.csproj)-${{ github.run_number }}"
+
+          if echo "$COMMIT_MSG" | grep -q "build release"; then
+            echo "should_build=true" >> $GITHUB_OUTPUT
+            echo "should_release=true" >> $GITHUB_OUTPUT
+          elif echo "$COMMIT_MSG" | grep -q "build action"; then
+            echo "should_build=true" >> $GITHUB_OUTPUT
+            echo "should_release=false" >> $GITHUB_OUTPUT
+          else
+            echo "should_build=false" >> $GITHUB_OUTPUT
+            echo "should_release=false" >> $GITHUB_OUTPUT
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+  build:
+    needs: check
+    if: needs.check.outputs.should_build == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - run: dotnet restore
+      - run: dotnet build -c Release --no-restore
+      - run: |
+          mkdir -p output
+          cp bin/Release/net10.0/QwqPlugin.dll output/
+          cp bin/Release/net10.0/*.pdb output/ 2>/dev/null || true
+          cd output && zip -r ../qwqCounterStrikePlugin.zip .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qwqCounterStrikePlugin
+          path: qwqCounterStrikePlugin.zip
+
+  release:
+    needs: [check, build]
+    if: needs.check.outputs.should_release == 'true'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: qwqCounterStrikePlugin
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: qwqCounterStrikePlugin.zip
+          tag_name: ${{ needs.check.outputs.version }}
+          name: "qwqCounterStrikePlugin ${{ needs.check.outputs.version }}"
+          generate_release_notes: true
