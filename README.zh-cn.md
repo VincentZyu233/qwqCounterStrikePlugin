@@ -78,7 +78,7 @@
    ./cs2 -dedicated -game csgo +map de_dust2 +sv_lan 1
    ```
 
-   控制台看到 `Finished loading plugin qwq CounterStrike Plugin` 即加载成功。
+   控制台看到 `Finished loading plugin qwq CounterStrikeSharp Plugin` 即加载成功。
 
 5. **进游戏测试**  
    聊天框输入 `qwq` → 收到绿色回复 `qwq!`

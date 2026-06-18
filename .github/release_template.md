@@ -18,8 +18,8 @@ __COMMIT_LOG__
 
 | File | Description |
 |------|------------|
-| [📦 `qwqCounterStrikeSharpPlugin-v__VERSION__.dll`](__BASE_URL__/qwqCounterStrikeSharpPlugin-v__VERSION__.dll) | 🔌 Plugin main DLL |
-| [📦 `qwqCounterStrikeSharpPlugin-v__VERSION__.pdb`](__BASE_URL__/qwqCounterStrikeSharpPlugin-v__VERSION__.pdb) | 🐛 Debug symbols (optional, kept for error line numbers) |
+| [📦 `qwqCounterStrikeSharpPlugin-__VERSION__.dll`](__BASE_URL__/qwqCounterStrikeSharpPlugin-__VERSION__.dll) | 🔌 Plugin main DLL |
+| [📦 `qwqCounterStrikeSharpPlugin-__VERSION__.pdb`](__BASE_URL__/qwqCounterStrikeSharpPlugin-__VERSION__.pdb) | 🐛 Debug symbols (optional, kept for error line numbers) |
 
 ### 📥 Install Plugin
 
@@ -30,10 +30,10 @@ cd "path/to/Steam/steamapps/common/Counter-Strike Global Offensive/game"
 cd ./csgo/addons/counterstrikesharp/plugins/
 mkdir -p qwqCounterStrikeSharpPlugin
 cd qwqCounterStrikeSharpPlugin
-wget "__BASE_URL__/qwqCounterStrikeSharpPlugin-v__VERSION__.dll"
-wget "__BASE_URL__/qwqCounterStrikeSharpPlugin-v__VERSION__.pdb"
-mv qwqCounterStrikeSharpPlugin-v__VERSION__.dll qwqCounterStrikeSharpPlugin.dll
-mv qwqCounterStrikeSharpPlugin-v__VERSION__.pdb qwqCounterStrikeSharpPlugin.pdb
+wget "__BASE_URL__/qwqCounterStrikeSharpPlugin-__VERSION__.dll"
+wget "__BASE_URL__/qwqCounterStrikeSharpPlugin-__VERSION__.pdb"
+mv qwqCounterStrikeSharpPlugin-__VERSION__.dll qwqCounterStrikeSharpPlugin.dll
+mv qwqCounterStrikeSharpPlugin-__VERSION__.pdb qwqCounterStrikeSharpPlugin.pdb
 ```
 
 ### 📋 Deployment Steps
