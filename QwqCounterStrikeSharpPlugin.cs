@@ -9,7 +9,7 @@ namespace qwqCounterStrikeSharpPlugin;
 public class QwqCounterStrikeSharpPlugin : BasePlugin
 {
     public override string ModuleName => "qwq CounterStrikeSharp Plugin";
-    public override string ModuleVersion => "0.1.5";
+    public override string ModuleVersion => "0.1.6";
 
     public override void Load(bool hotReload)
     {

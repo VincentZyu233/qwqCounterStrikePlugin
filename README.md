@@ -11,9 +11,9 @@
 
 [![QQ群](https://img.shields.io/badge/QQ群-1085190201-12B7F5?style=for-the-badge&logo=qq&logoColor=white)](https://qm.qq.com/q/4vjto4V7Di)
 
-<p><del>💬 插件使用问题 / 🐛 Bug反馈 / 👨‍💻 插件开发交流，欢迎加入QQ群：<b>259248174</b>   🎉（这个群G了</del> </p>
-<p>💬 插件使用问题 / 🐛 Bug反馈 / 👨‍💻 插件开发交流，欢迎加入QQ群：<b>1085190201</b> 🎉</p>
-<p>💡 在群里直接艾特我，回复的更快哦~ ✨</p>
+<p><del>💬 Plugin usage / 🐛 Bug reports / 👨‍💻 Plugin dev discussion, join QQ group: <b>259248174</b> 🎉 (RIP)</del></p>
+<p>💬 Plugin usage / 🐛 Bug reports / 👨‍💻 Plugin dev discussion, join QQ group: <b>1085190201</b> 🎉</p>
+<p>💡 Mention me in the group for faster replies ~ ✨</p>
 
 # 🎮 ✨ 🚀 💬 qwqCounterStrikeSharpPlugin
 
@@ -56,6 +56,8 @@ Built on [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp),
    CSS requires plugins in `plugins/<PluginName>/<PluginName>.dll` (directory name = DLL filename).
    Download the `.dll` from [Releases](https://github.com/VincentZyuApps/qwqCounterStrikeSharpPlugin/releases/latest):
    ```bash
+   # Default Steam path is usually under ~/.local
+   cd "path/to/Steam/steamapps/common/Counter-Strike Global Offensive/game"
    TAG=<latest version tag>
    PLUGIN_DIR=csgo/addons/counterstrikesharp/plugins/qwqCounterStrikeSharpPlugin
    mkdir -p $PLUGIN_DIR

@@ -56,6 +56,8 @@
    CSS 要求插件放在 `plugins/<插件名>/<插件名>.dll` 子目录中（目录名 = DLL 文件名）。
    从 [Releases](https://github.com/VincentZyuApps/qwqCounterStrikeSharpPlugin/releases/latest) 下载 `.dll`：
    ```bash
+   # 一般默认的steam路径在 ~/.local 里面
+   cd "path/to/Steam/steamapps/common/Counter-Strike Global Offensive/game"
    TAG=<最新版本号>
    PLUGIN_DIR=csgo/addons/counterstrikesharp/plugins/qwqCounterStrikeSharpPlugin
    mkdir -p $PLUGIN_DIR

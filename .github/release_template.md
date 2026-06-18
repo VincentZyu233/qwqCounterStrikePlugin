@@ -8,41 +8,46 @@
 
 ---
 
-### 🎯 版本亮点
+### 🎯 Commit Log
 
 __COMMIT_LOG__
 
 ---
 
-### ⬇️ 下载 Release 产物
+### ⬇️ Download Release Assets
 
-| 文件 | 说明 |
-|------|------|
-| [📦 `qwqCounterStrikeSharpPlugin-v__VERSION__.dll`](__BASE_URL__/qwqCounterStrikeSharpPlugin-v__VERSION__.dll) | 🔌 插件主程序 |
-| [📦 `qwqCounterStrikeSharpPlugin-v__VERSION__.pdb`](__BASE_URL__/qwqCounterStrikeSharpPlugin-v__VERSION__.pdb) | 🐛 调试符号文件（可选，保留方便报错定位行号） |
+| File | Description |
+|------|------------|
+| [📦 `qwqCounterStrikeSharpPlugin-v__VERSION__.dll`](__BASE_URL__/qwqCounterStrikeSharpPlugin-v__VERSION__.dll) | 🔌 Plugin main DLL |
+| [📦 `qwqCounterStrikeSharpPlugin-v__VERSION__.pdb`](__BASE_URL__/qwqCounterStrikeSharpPlugin-v__VERSION__.pdb) | 🐛 Debug symbols (optional, kept for error line numbers) |
 
-### 📥 安装方法
+### 📥 Install Plugin
 
 ```bash
-# 1. 下载到插件子目录（目录名必须等于 DLL 文件名）
-cd csgo/addons/counterstrikesharp/plugins/
+# Default Steam path is usually under ~/.local
+cd "path/to/Steam/steamapps/common/Counter-Strike Global Offensive/game"
+# Download to plugin subdirectory (dir name must match DLL filename)
+cd ./csgo/addons/counterstrikesharp/plugins/
 mkdir -p qwqCounterStrikeSharpPlugin
 cd qwqCounterStrikeSharpPlugin
 wget "__BASE_URL__/qwqCounterStrikeSharpPlugin-v__VERSION__.dll"
 wget "__BASE_URL__/qwqCounterStrikeSharpPlugin-v__VERSION__.pdb"
+mv qwqCounterStrikeSharpPlugin-v__VERSION__.dll qwqCounterStrikeSharpPlugin.dll
+mv qwqCounterStrikeSharpPlugin-v__VERSION__.pdb qwqCounterStrikeSharpPlugin.pdb
 ```
 
-### 📋 部署流程
+### 📋 Deployment Steps
+> See [README.md](https://github.com/VincentZyuApps/qwqCounterStrikeSharpPlugin) for details
 
-1. ✅ 服务器已安装 Metamod:Source + CounterStrikeSharp
-2. ✅ 下载 DLL 放入 `plugins/qwqCounterStrikeSharpPlugin/`
-3. ✅ 重启服务端
-4. 🎮 玩家在聊天框输入 `qwq` → 收到绿色回复 `qwq!`
+1. ✅ Server has Metamod:Source + CounterStrikeSharp installed
+2. ✅ Download DLL into `plugins/qwqCounterStrikeSharpPlugin/`
+3. ✅ Restart the server
+4. 🎮 Type `qwq` in chat → receive green reply `qwq!`
 
 ---
 
-### 📊 构建信息
+### 📊 Build Info
 
-- **构建日期**: __BUILD_DATE__
-- **提交**: __COMMIT_HASH__
-- **完整 Changelog**: __CHANGELOG_URL__
+- **Build Date**: __BUILD_DATE__
+- **Commit**: __COMMIT_HASH__
+- **Full Changelog**: __CHANGELOG_URL__
